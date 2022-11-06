@@ -22,13 +22,17 @@ interface Args {
 }
 
 export default class Convert extends Command {
-  static description = 'describe the command here'
+  static description = 'Convert a DeusEX XML file to JSON for DXAP Project'
 
   static examples = ['<%= config.bin %> <%= command.id %>']
 
   static flags = {}
 
-  static args = [{name: 'file'}, {name: 'audioLocation'}, {name: 'output'}]
+  static args = [
+    {name: 'file', description: 'The XML file'},
+    {name: 'audioLocation', description: 'The conversation files locations'},
+    {name: 'output', description: 'The output directory'},
+  ]
 
   audioCopyList: {src: string; dst: string}[] = []
   audioFileList: string[] = []

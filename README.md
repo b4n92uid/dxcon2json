@@ -20,7 +20,7 @@ $ npm install -g dxcon2json
 $ dxcon2json COMMAND
 running command...
 $ dxcon2json (--version)
-dxcon2json/0.0.0 win32-x64 node-v16.8.0
+dxcon2json/0.0.0 win32-x64 node-v16.18.0
 $ dxcon2json --help [COMMAND]
 USAGE
   $ dxcon2json COMMAND
@@ -29,8 +29,7 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`dxcon2json hello PERSON`](#dxcon2json-hello-person)
-* [`dxcon2json hello world`](#dxcon2json-hello-world)
+* [`dxcon2json convert [FILE] [AUDIOLOCATION] [OUTPUT]`](#dxcon2json-convert-file-audiolocation-output)
 * [`dxcon2json help [COMMAND]`](#dxcon2json-help-command)
 * [`dxcon2json plugins`](#dxcon2json-plugins)
 * [`dxcon2json plugins:install PLUGIN...`](#dxcon2json-pluginsinstall-plugin)
@@ -42,45 +41,27 @@ USAGE
 * [`dxcon2json plugins:uninstall PLUGIN...`](#dxcon2json-pluginsuninstall-plugin-2)
 * [`dxcon2json plugins update`](#dxcon2json-plugins-update)
 
-## `dxcon2json hello PERSON`
+## `dxcon2json convert [FILE] [AUDIOLOCATION] [OUTPUT]`
 
-Say hello
+Convert a DeusEX XML file to JSON for DXAP Project
 
 ```
 USAGE
-  $ dxcon2json hello [PERSON] -f <value>
+  $ dxcon2json convert [FILE] [AUDIOLOCATION] [OUTPUT]
 
 ARGUMENTS
-  PERSON  Person to say hello to
-
-FLAGS
-  -f, --from=<value>  (required) Whom is saying hello
-
-DESCRIPTION
-  Say hello
-
-EXAMPLES
-  $ oex hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
-```
-
-_See code: [dist/commands/hello/index.ts](https://github.com/b4n92uid/dxcon2json/blob/v0.0.0/dist/commands/hello/index.ts)_
-
-## `dxcon2json hello world`
-
-Say hello world
-
-```
-USAGE
-  $ dxcon2json hello world
+  FILE           The XML file
+  AUDIOLOCATION  The conversation files locations
+  OUTPUT         The output directory
 
 DESCRIPTION
-  Say hello world
+  Convert a DeusEX XML file to JSON for DXAP Project
 
 EXAMPLES
-  $ oex hello world
-  hello world! (./src/commands/hello/world.ts)
+  $ dxcon2json convert
 ```
+
+_See code: [dist/commands/convert.ts](https://github.com/b4n92uid/dxcon2json/blob/v0.0.0/dist/commands/convert.ts)_
 
 ## `dxcon2json help [COMMAND]`
 
@@ -100,7 +81,7 @@ DESCRIPTION
   Display help for dxcon2json.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.10/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v5.1.18/src/commands/help.ts)_
 
 ## `dxcon2json plugins`
 
@@ -120,7 +101,7 @@ EXAMPLES
   $ dxcon2json plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.0.11/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v2.1.7/src/commands/plugins/index.ts)_
 
 ## `dxcon2json plugins:install PLUGIN...`
 
@@ -140,7 +121,6 @@ FLAGS
 
 DESCRIPTION
   Installs a plugin into the CLI.
-
   Can be installed from npm or a git url.
 
   Installation of a user-installed plugin will override a core plugin.
@@ -148,6 +128,7 @@ DESCRIPTION
   e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command
   will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
   the CLI without the need to patch and update the whole CLI.
+
 
 ALIASES
   $ dxcon2json plugins add
@@ -200,7 +181,6 @@ FLAGS
 
 DESCRIPTION
   Installs a plugin into the CLI.
-
   Can be installed from npm or a git url.
 
   Installation of a user-installed plugin will override a core plugin.
@@ -208,6 +188,7 @@ DESCRIPTION
   e.g. If you have a core plugin that has a 'hello' command, installing a user-installed plugin with a 'hello' command
   will override the core plugin implementation. This is useful if a user needs to update core plugin functionality in
   the CLI without the need to patch and update the whole CLI.
+
 
 ALIASES
   $ dxcon2json plugins add
@@ -237,11 +218,11 @@ FLAGS
 
 DESCRIPTION
   Links a plugin into the CLI for development.
-
   Installation of a linked plugin will override a user-installed or core plugin.
 
   e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello'
   command will override the user-installed or core plugin implementation. This is useful for development work.
+
 
 EXAMPLES
   $ dxcon2json plugins:link myplugin
